@@ -8,7 +8,7 @@
     "start": "electron .",
     "test": "node --test test/*.test.*",
     "test:desktop": "electron test/desktop-smoke.cjs",
-    "build:win": "node scripts/prepare-windows.cjs && electron-builder --win nsis --x64 --publish never",
+    "build:win": "node scripts/prepare-windows.cjs && electron-builder --win msi --x64 --publish never",
     "test:functional": "electron test/desktop-full.cjs",
     "test:native": "electron test/native-dialog.cjs",
     "icons": "electron scripts/build-icons.cjs"
@@ -36,7 +36,7 @@
     "win": {
       "target": [
         {
-          "target": "nsis",
+          "target": "msi",
           "arch": [
             "x64"
           ]
@@ -51,16 +51,14 @@
       "signExecutable": false,
       "icon": "src/assets/icon.ico"
     },
-    "nsis": {
+    "icon": "src/assets/icon.png",
+    "msi": {
       "oneClick": false,
       "perMachine": false,
-      "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
       "runAfterFinish": false,
-      "artifactName": "照片MV-${version}-Windows-${arch}-Setup.${ext}",
-      "installerIcon": "src/assets/icon.ico",
-      "uninstallerIcon": "src/assets/icon.ico"
-    },
-    "icon": "src/assets/icon.png"
+      "artifactName": "照片MV-${version}-Windows-${arch}-Setup.${ext}"
+    }
   }
 }

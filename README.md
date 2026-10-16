@@ -6,7 +6,7 @@
 
 ## 啟動
 
-Windows 使用者：執行 `dist/照片MV-0.1.0-Windows-x64-Setup.exe` 安裝；影片編碼器已隨附，不必安裝 Node 或 FFmpeg。此安裝檔由 macOS 交叉建置，尚未在 Windows 實機驗證。
+Windows 使用者：執行 `dist/照片MV-0.1.0-Windows-x64-Setup.msi` 安裝；影片編碼器已隨附，不必安裝 Node 或 FFmpeg。此安裝檔由 macOS 交叉建置，尚未在 Windows 實機驗證。
 
 從原始碼開發需要 Node.js 22+。npm 會安裝目前平台的影片編碼器；測試檢查輸出另需系統 ffprobe（macOS 可 `brew install ffmpeg`）。
 

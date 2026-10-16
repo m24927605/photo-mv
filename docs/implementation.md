@@ -40,7 +40,7 @@
 
 開發需要 Node 22 以上及 npm；Electron、electron-builder、ffmpeg-static 皆由 lockfile 固定版本。`npm ci`、`npm start`、`npm test`、`npm run test:functional`。測試另需要 PATH 中的 ffprobe 檢查實際輸出。
 
-`npm run build:win` 下載固定版本的 Windows x64 FFmpeg 與其 LICENSE／README，然後建立 NSIS 安裝包。Windows 安裝後不需 Node、npm、FFmpeg 或開發環境。程式以 resources/ffmpeg/ffmpeg.exe 的絕對路徑啟動編碼器，不依賴 Windows PATH。輸出位於 dist/照片MV-0.1.0-Windows-x64-Setup.exe。安裝包目前未簽章；簽章不列入這次功能完成條件。
+`npm run build:win` 下載固定版本的 Windows x64 FFmpeg 與其 LICENSE／README，然後建立 MSI 安裝包。Windows 安裝後不需 Node、npm、FFmpeg 或開發環境。程式以 resources/ffmpeg/ffmpeg.exe 的絕對路徑啟動編碼器，不依賴 Windows PATH。輸出位於 dist/照片MV-0.1.0-Windows-x64-Setup.msi。安裝包目前未簽章；簽章不列入這次功能完成條件。
 
 ## 有界工作策略
 

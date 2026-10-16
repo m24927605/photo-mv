@@ -45,7 +45,9 @@
     "nativeKeyboardSelectionVsEditing": "PASS"
   },
   "windowsExecutionTested": false,
-  "windowsPackageIncludesLatestChanges": true,
-  "pendingVerification": [],
+  "windowsPackageIncludesLatestChanges": false,
+  "pendingVerification": [
+    "Windows MSI 建置及安裝驗證"
+  ],
   "windowsPackageVerifiedAt": "2026-10-16T05:51:17.859Z"
 }

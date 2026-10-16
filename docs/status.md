@@ -38,7 +38,7 @@
 
 ## Windows 交付
 
-安裝檔：`dist/照片MV-0.1.0-Windows-x64-Setup.exe`。本輪已重新封裝並核對，最新封裝核對結果以 [套件紀錄](test-results/windows-package.json) 為準。內含 Windows 編碼器與授權，不需額外安裝 Node 或 FFmpeg。靜態核對包括完整 src、AMD64、編碼器、內嵌圖示及產品名稱；不能代替 Windows 執行測試。
+安裝檔：`dist/照片MV-0.1.0-Windows-x64-Setup.msi`。本輪已重新封裝並核對，最新封裝核對結果以 [套件紀錄](test-results/windows-package.json) 為準。內含 Windows 編碼器與授權，不需額外安裝 Node 或 FFmpeg。靜態核對包括完整 src、AMD64、編碼器、內嵌圖示及產品名稱；不能代替 Windows 執行測試。
 
 ## 限制與未驗證
 
@@ -72,3 +72,7 @@
 ## 後段既有文字區塊覆蓋新增文字的修正
 
 根因是後段整組文字快照覆蓋前段新加入的獨立文字。新增文字已使用獨立識別，同步它的變更至後段，遇到同一文字的明確修改才停止；其他文字區塊保持。新增兩項模型回歸，總計 29 項通過。Electron 實測先建立後段 B，再在前段新增 C，後面同時呈現 B+C；具名重開及完整／剪裁無損輸出 RGB 比對通過。另以原生滑鼠按第二張、+文字、輸入「貓哥午安」、切第三張，確認原有後段文字與新文字同時存在，回第一張沒有多出新字。證據為 text-inheritance.json 與 native-text-inheritance.json。
+
+## Windows MSI 建置
+
+Windows 交付格式改為 MSI，GitHub Actions 在 Windows runner 執行 npm test、建置、套件核對及安裝／啟動／解除安裝。完整 Windows 編輯功能仍須另行驗收，不以安裝成功代替。
