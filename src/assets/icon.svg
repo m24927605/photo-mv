@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9578f4"/><stop offset="1" stop-color="#4e2da3"/></linearGradient>
+    <linearGradient id="picture" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4a337e"/><stop offset="1" stop-color="#201a3c"/></linearGradient>
+  </defs>
+  <rect x="64" y="64" width="896" height="896" rx="216" fill="url(#tile)"/>
+  <rect x="236" y="218" width="582" height="510" rx="68" transform="rotate(-10 527 473)" fill="#ede6ff" opacity=".38"/>
+  <rect x="192" y="286" width="640" height="480" rx="68" fill="#f7f3ff"/>
+  <rect x="232" y="326" width="560" height="400" rx="34" fill="url(#picture)"/>
+  <path d="M232 654 378 504 525 649 643 539 792 674V692Q792 726 758 726H266Q232 726 232 692Z" fill="#a78ce8" opacity=".44"/>
+  <path d="M452 413Q438 405 438 422V630Q438 647 452 639L628 537Q646 526 628 515Z" fill="#fff"/>
+</svg>

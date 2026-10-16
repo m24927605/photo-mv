@@ -1,0 +1,26 @@
+const { contextBridge, ipcRenderer } = require('electron');
+contextBridge.exposeInMainWorld('desktop', {
+  platform: process.platform,
+  projectMenu:()=>ipcRenderer.invoke('project-menu'),
+  saveProject:(snapshot,saveAs=false)=>ipcRenderer.invoke('save-project',snapshot,saveAs),
+  newProject:snapshot=>ipcRenderer.invoke('new-project',snapshot),
+  openProject:snapshot=>ipcRenderer.invoke('open-project',snapshot),
+  onProjectCommand:fn=>ipcRenderer.on('project-command',(_event,action)=>fn(action)),
+  restore: () => ipcRenderer.invoke('restore'),
+  save: snapshot => ipcRenderer.invoke('save', snapshot),
+  closeReady: () => ipcRenderer.invoke('close-ready'),
+  onCloseRequested: fn => ipcRenderer.on('close-request', fn),
+  importPhotos: () => ipcRenderer.invoke('import', 'photo'),
+  importMusic: () => ipcRenderer.invoke('import', 'music'),
+  sourceWave: id => ipcRenderer.invoke('source-wave', id),
+  trackWave: project => ipcRenderer.invoke('track-wave', project),
+  audioSource: id => ipcRenderer.invoke('audio-source',id),
+  readAsset: id => ipcRenderer.invoke('read', id),
+  crop: (project,start,end) => ipcRenderer.invoke('crop',project,start,end),
+  begin: project => ipcRenderer.invoke('begin', project),
+  frame: (index, bytes) => ipcRenderer.invoke('frame', index, bytes),
+  finish: () => ipcRenderer.invoke('finish'),
+  cancel: () => ipcRenderer.invoke('cancel'),
+  dirty: value => ipcRenderer.send('dirty', value),
+  progress: fn => ipcRenderer.on('progress', (_event, value) => fn(value))
+});

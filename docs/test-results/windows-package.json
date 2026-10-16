@@ -1,0 +1,25 @@
+{
+  "builtAt": "2026-10-16T05:51:17.859Z",
+  "installer": "dist/照片MV-0.1.0-Windows-x64-Setup.exe",
+  "productName": "照片MV",
+  "windowsVersionResourceNameVerified": true,
+  "bytes": 134176070,
+  "sha256": "06002c3f2c5a7764a69699a76326a9b1ea3369fb557ae38f3bcb979009a17514",
+  "applicationPE": "AMD64",
+  "installerStubPE": "x86",
+  "encoderPE": "AMD64",
+  "packagedSourceMatches": true,
+  "sourceFilesChecked": 21,
+  "hostEncoderExcluded": true,
+  "appAndInstallerIconsMatch": true,
+  "iconSizes": [
+    16,
+    24,
+    32,
+    48,
+    64,
+    128,
+    256
+  ],
+  "windowsExecutionTested": false
+}

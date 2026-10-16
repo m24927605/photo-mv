@@ -1,0 +1,31 @@
+{
+  "testedAt": "2026-10-16T05:46:09.142Z",
+  "platform": "darwin",
+  "photos": 3,
+  "inheritAcrossPhotos": true,
+  "addBeforeExistingLaterBlock": true,
+  "newTextContentAndColorPropagate": true,
+  "newBlockAtSeconds": 1.5,
+  "earlierTextPreserved": true,
+  "deleteCreatesBlankBlock": true,
+  "undoRestoresInheritance": true,
+  "playbackCrossesTextBoundary": true,
+  "namedProjectReopenVerified": true,
+  "autosaveReloadVerified": true,
+  "fullVideoFrames": 90,
+  "fullFramePixelsVerified": [
+    15,
+    36,
+    54,
+    78
+  ],
+  "croppedFramePixelsVerified": [
+    3,
+    15,
+    40
+  ],
+  "windowsExecuted": false,
+  "currentUserProjectMissingTextRepaired": true,
+  "otherUserSettingsUnchanged": true,
+  "userRepairVerifiedAt": "2026-10-16T05:51:13.565Z"
+}

@@ -1,0 +1,12 @@
+{
+  "testedAt": "2026-10-16T05:47:42.519Z",
+  "platform": "darwin",
+  "inputUpdatesBeforeChange": true,
+  "clickPreviewClosesPickerWithoutLosingColor": true,
+  "undoWithoutDuplicateStep": true,
+  "reloadRetainsColor": true,
+  "allSelectedColorPixels": 1244,
+  "previewExactColorPixels": 1765,
+  "exportExactColorPixels": 692,
+  "windowsExecuted": false
+}

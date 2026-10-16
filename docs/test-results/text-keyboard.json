@@ -1,0 +1,14 @@
+{
+  "testedAt": "2026-10-16T05:47:40.947Z",
+  "platform": "darwin",
+  "singleClickSelectsFrame": true,
+  "deleteAndBackspaceRemoveFrame": true,
+  "doubleClickEditsText": true,
+  "typingDeletionPreservesFrame": true,
+  "undoRedoRestoresFrame": true,
+  "numberInputIsolated": true,
+  "repeatIgnored": true,
+  "photosPreserved": true,
+  "autosaveVerified": true,
+  "windowsExecuted": false
+}

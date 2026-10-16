@@ -1,0 +1,66 @@
+{
+  "name": "celebration-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline photo and music desktop video editor",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.*",
+    "test:desktop": "electron test/desktop-smoke.cjs",
+    "build:win": "node scripts/prepare-windows.cjs && electron-builder --win nsis --x64 --publish never",
+    "test:functional": "electron test/desktop-full.cjs",
+    "test:native": "electron test/native-dialog.cjs",
+    "icons": "electron scripts/build-icons.cjs"
+  },
+  "devDependencies": {
+    "electron": "44.7.2",
+    "electron-builder": "26.15.3"
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0"
+  },
+  "author": "照片MV",
+  "build": {
+    "appId": "com.celebration.studio",
+    "productName": "照片MV",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!node_modules/ffmpeg-static/ffmpeg",
+      "!node_modules/ffmpeg-static/ffmpeg.exe"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "extraResources": [
+        {
+          "from": "vendor/win-x64",
+          "to": "ffmpeg"
+        }
+      ],
+      "signExecutable": false,
+      "icon": "src/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "runAfterFinish": false,
+      "artifactName": "照片MV-${version}-Windows-${arch}-Setup.${ext}",
+      "installerIcon": "src/assets/icon.ico",
+      "uninstallerIcon": "src/assets/icon.ico"
+    },
+    "icon": "src/assets/icon.png"
+  }
+}

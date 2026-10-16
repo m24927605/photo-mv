@@ -1,0 +1,97 @@
+{
+  "testedAt": "2026-10-16T05:48:29.376Z",
+  "platform": "darwin",
+  "arch": "arm64",
+  "electron": "44.7.2",
+  "ffmpeg": "ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers",
+  "results": [
+    {
+      "name": "JPEG／PNG／WebP 與真實照片、中文／空白／引號檔名匯入",
+      "result": "PASS",
+      "milliseconds": 224
+    },
+    {
+      "name": "照片排序及刪除不進入文字復原記錄",
+      "result": "PASS",
+      "milliseconds": 62
+    },
+    {
+      "name": "照片軸左右把手伸縮時間、共同刻度與點擊定位",
+      "result": "PASS",
+      "milliseconds": 287
+    },
+    {
+      "name": "片段時間、非法值拒絕、復原",
+      "result": "PASS",
+      "milliseconds": 27
+    },
+    {
+      "name": "多段多行中英文、色彩、字級、六種字體、粗體與斜體",
+      "result": "PASS",
+      "milliseconds": 708
+    },
+    {
+      "name": "文字框拖曳、空白區不移動、方向鍵、工具列刪除、上一步與下一步",
+      "result": "PASS",
+      "milliseconds": 1109
+    },
+    {
+      "name": "WAV／MP3／M4A 匯入與移除",
+      "result": "PASS",
+      "milliseconds": 211
+    },
+    {
+      "name": "音樂編輯器裁切、音量與淡入淡出控制",
+      "result": "PASS",
+      "milliseconds": 164
+    },
+    {
+      "name": "真實音訊播放、短音樂循環、照片邊界與停止",
+      "result": "PASS",
+      "milliseconds": 3315
+    },
+    {
+      "name": "五種尺寸：真實照片與文字 MP4 輸出、影格數、音樂非靜音",
+      "result": "PASS",
+      "milliseconds": 14099
+    },
+    {
+      "name": "五種尺寸：無損 MOV 與合成 PNG 像素完全一致",
+      "result": "PASS",
+      "milliseconds": 17680
+    },
+    {
+      "name": "照片及兩軸決定影片長度、長音樂截斷與無聲輸出",
+      "result": "PASS",
+      "milliseconds": 2881
+    },
+    {
+      "name": "對話框取消、損壞照片／音樂拒絕、不變更既有編輯",
+      "result": "PASS",
+      "milliseconds": 317
+    },
+    {
+      "name": "EXIF 旋轉、直幅黑邊與透明圖片合成",
+      "result": "PASS",
+      "milliseconds": 322
+    },
+    {
+      "name": "來源覆寫遭拒、匯入來源 SHA-256 完全不變",
+      "result": "PASS",
+      "milliseconds": 75
+    },
+    {
+      "name": "準備影格時取消、編碼中取消、取消後可再次輸出",
+      "result": "PASS",
+      "milliseconds": 949
+    },
+    {
+      "name": "本機自動儲存保留當前編輯快照",
+      "result": "PASS",
+      "milliseconds": 25
+    }
+  ],
+  "error": null,
+  "windowsExecuted": false,
+  "dialogSelection": "Native dialog selection is automated; editor, playback, canvas and encoder are real."
+}

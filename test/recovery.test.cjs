@@ -1,0 +1,6 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs/promises');const os=require('node:os');const path=require('node:path');const {spawn}=require('node:child_process');
+test('真實 Electron 強制終止後恢復，正常關閉前寫入最後輸入', {timeout:60000},async()=>{
+ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'celebration-recovery-'));const data=path.join(dir,'state');
+ const launch=(stage,kill)=>new Promise((resolve,reject)=>{const child=spawn(require('electron'),[path.join(__dirname,'recovery-app.cjs'),data,stage]);let output='';const timer=setTimeout(()=>{child.kill('SIGKILL');reject(Error('recovery timeout '+output));},18000);child.stdout.on('data',b=>{output+=b;if(kill&&output.includes('READY_KILL'))child.kill('SIGKILL');});child.stderr.on('data',b=>{output+=b;});child.on('error',reject);child.on('close',(code,signal)=>{clearTimeout(timer);if(kill&&signal==='SIGKILL')resolve(output);else if(code===0)resolve(output);else reject(Error(output));});});
+ try{await launch('write',true);const saved=JSON.parse(await fs.readFile(path.join(data,'current-project.json'),'utf8'));assert.match(saved.state.project.slides[0].texts[0].value,/未離開文字框/);await launch('restore-close');assert.match(await launch('restore-final'),/RESTORE_PASS/);}finally{await fs.rm(dir,{recursive:true,force:true});}
+});

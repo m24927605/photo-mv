@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src data: celebration-asset:; script-src 'self'; style-src 'self'; connect-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>照片MV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="actions"><span id="save-status" role="status" aria-live="polite"></span><button id="project-menu">專案 ▾</button><button id="import">+照片</button><button id="add-text" disabled>+文字</button><button id="music">+音樂</button></div>
+  <div class="export">
+      <label>解析度<select id="resolution"><option>480p</option><option>720p</option><option>1080p</option><option value="2K">2K</option><option value="4K" selected>4K</option></select></label>
+      <label>格式<select id="encoding"><option value="mp4">MP4</option><option value="lossless">無損 MOV</option></select></label>
+      <button id="export" class="primary">匯出影片 ↗</button><button id="cancel" hidden>取消</button>
+    </div>
+</header>
+<main>
+  <section class="workspace">
+    <div class="section-title">
+      <h2>預覽</h2>
+      <div class="preview-tools"><span id="time">影片總長 0.0 秒</span></div>
+    </div>
+    <div class="preview-area"><div class="stage">
+      <canvas id="preview" width="1280" height="720" aria-label="影片預覽，可直接編輯及拖曳文字框"></canvas>
+      <div id="text-guides" class="text-guides" aria-hidden="true" hidden></div>
+      <div id="text-layer" class="text-layer" aria-label="畫面文字"></div>
+      <div id="text-toolbar" class="text-toolbar" role="toolbar" aria-label="文字工具列" hidden>
+        <button id="toolbar-handle" title="拖曳文字工具列" aria-label="拖曳文字工具列">⠿</button>
+        <button id="undo" disabled>上一步</button><button id="redo" disabled>下一步</button><button id="delete-text" class="danger" disabled>刪除</button>
+        <label>字體<select id="font"></select></label>
+        <label>大小 px<input id="size" title="所選輸出解析度的字體像素" type="number" min="0.01" max="648" step="0.01" value="129.6"></label>
+        <label>顏色<input id="color" type="color" value="#ffffff"></label>
+        <label class="tool-toggle" title="粗體"><input id="bold" type="checkbox" aria-label="粗體"><span>B</span></label>
+        <label class="tool-toggle" title="斜體"><input id="italic" type="checkbox" aria-label="斜體"><span>I</span></label>
+        <label class="tool-toggle" title="底線"><input id="underline" type="checkbox" aria-label="底線"><span>U</span></label>
+      </div>
+      <div id="empty">加入照片開始</div>
+    </div>
+    </div>
+    <div class="transport"><button id="rewind" aria-label="回到開始播放軸" disabled>⏮ 回到開始</button><button id="play">▶ 播放</button></div>
+    <section class="timeline" aria-label="照片與音樂時間軸">
+      <div id="timeline-scroll"><div id="timeline-content"><div id="timeline-playhead" role="slider" aria-label="共用播放軸，可左右拖曳" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" tabindex="0"></div>
+        <div id="timeline-range" aria-hidden="true"></div><button id="range-left" class="range-edge" aria-label="開始播放軸，可左右拖曳"><span class="range-label">開始</span></button><button id="range-right" class="range-edge" aria-label="結束播放軸，可左右拖曳"><span class="range-label">結束</span></button>
+        <section class="photo-track-block" aria-label="照片區塊">
+          <div class="photo-tools" role="toolbar" aria-label="照片工具列"><strong>照片 <small id="count">0 張</small></strong><button id="select-all-photos">全選照片</button><label>照片顯示時間長度<input id="duration" type="number" min="0.1" max="14400" step="0.1" value="3" placeholder="不同">秒</label><span id="photo-selection-count"></span></div>
+          <div id="timeline-ruler"></div>
+          <ol id="slides" aria-label="照片軸"></ol>
+        </section>
+        <section class="music-track-block" aria-label="音樂區塊">
+          <div class="music-track-header"><button class="music-track-heading" id="music-heading">音樂</button><button id="remove-music" aria-label="移除音樂" hidden>×</button></div>
+          <button id="music-track" aria-label="音樂軸，按下編輯來源音樂"><img id="project-waveform" alt="影片音樂聲波" hidden><span id="track-wave-status"></span></button>
+        </section>
+      </div></div>
+    </section>
+    <section id="music-editor" class="music-editor" aria-label="音樂編輯器" hidden>
+      <div class="section-title"><h2>來源音樂</h2><span id="clip-time"></span><button id="close-music" aria-label="收起音樂編輯器">×</button></div>
+      <div class="wave-editor" id="wave-editor">
+        <img id="source-waveform" alt="來源音樂聲波" hidden><span id="source-wave-status">聲波載入中…</span>
+        <div id="clip-region" tabindex="0" role="group" aria-label="保留的音樂片段，可整段拖曳"></div>
+        <input id="music-start" type="range" min="0" step="0.01" aria-label="保留片段左邊界">
+        <input id="music-end" type="range" min="0.01" step="0.01" aria-label="保留片段右邊界">
+      </div>
+      <div class="music-controls">
+        <label>音量 <output id="volume-value">100%</output><input id="music-volume" type="range" min="0" max="100" step="1" value="100"></label>
+        <label>淡入秒數<input id="music-fade-in" type="number" min="0" step="0.1" value="0"></label>
+        <label>淡出秒數<input id="music-fade-out" type="number" min="0" step="0.1" value="0"></label>
+        <button id="music-listen">▶ 試聽</button>
+      </div>
+    </section>
+    <progress id="progress" max="1" value="0" hidden></progress>
+    <p id="status" role="status" aria-live="polite"></p>
+  </section>
+</main>
+<script src="model.js"></script><script src="draw.js"></script><script src="timeline.js"></script><script src="music-editor.js"></script><script src="text-alignment.js"></script><script src="renderer.js"></script>
+</body>
+</html>

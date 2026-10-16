@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.DS_Store
+vendor/
+
+# Local projects, user media and captured UI evidence
+projects/
+範例素材/
+*.celebration
+docs/desktop-preview.png
+docs/test-results/*
+!docs/test-results/.gitkeep
+!docs/test-results/macos-functional.json
+!docs/test-results/windows-package.json
+!docs/test-results/timeline-editing.json
+!docs/test-results/text-inheritance.json
+!docs/test-results/text-drag.json
+!docs/test-results/text-color.json
+!docs/test-results/text-keyboard.json
+!docs/test-results/native-save-as.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
