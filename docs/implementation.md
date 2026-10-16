@@ -58,7 +58,7 @@
 
 文字由 Model.textBlocks／textsAt 統一解析：照片開頭非空 texts 或 textOverride 為明確區塊，未標記空陣列則延續；textChanges 保存照片內相對時間與完整文字陣列。預覽在照片或文字區塊邊界更新，renderSegments 依兩種邊界切分輸出；裁切先物化起點文字，再重算區塊時間。歷史改存全時間軸文字專用快照 textUndo／textRedo，只套回現存照片文字，不復原排序、長度或音樂；草稿保留時間點，新編輯清除下一步。舊的照片別 undo／redo 已移除，先前操作歷史不沿用。播放啟動以請求序號取消過期的非同步音訊來源／play 請求，停止與返回先遞增序號。
 
-`node scripts/verify-windows.cjs` 核對 src 全檔、Windows 程式及編碼器 AMD64、編碼器雜湊、七尺寸圖示、產品名稱與安裝檔 SHA-256，寫入 Windows 套件證據。此檢查不代表 Windows 執行驗收。
+`node scripts/verify-windows.cjs` 核對 src 全檔、Windows 程式及編碼器 AMD64、編碼器雜湊、應用程式七尺寸圖示、產品名稱、MSI 檔頭與安裝檔 SHA-256，寫入 Windows 套件證據。此靜態檢查不代表 Windows 執行驗收。MSI 的安裝、啟動與解除安裝另由 Windows runner 執行 scripts/test-windows-msi.ps1，完整編輯功能仍須獨立驗證。
 
 專案另存沿用儲存流程，saveAs 布林值經 preload 傳遞並在 main 驗證。建立副本前核對原專案／目的檔的路徑及 inode，寫入成功後才切換目前檔案；既有素材覆寫保護及原子寫入共用。
 

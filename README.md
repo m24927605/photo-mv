@@ -6,7 +6,7 @@
 
 ## 啟動
 
-Windows 使用者：執行 `dist/照片MV-0.1.0-Windows-x64-Setup.msi` 安裝；影片編碼器已隨附，不必安裝 Node 或 FFmpeg。此安裝檔由 macOS 交叉建置，尚未在 Windows 實機驗證。
+Windows 使用者：執行 `dist/照片MV-0.1.0-Windows-x64-Setup.msi` 安裝；影片編碼器已隨附，不必安裝 Node 或 FFmpeg。MSI 由 GitHub Actions 的 Windows runner 建置；安裝與啟動驗證和完整編輯功能驗收分別記錄。
 
 從原始碼開發需要 Node.js 22+。npm 會安裝目前平台的影片編碼器；測試檢查輸出另需系統 ffprobe（macOS 可 `brew install ffmpeg`）。
 
@@ -18,6 +18,8 @@ npm run test:desktop
 npm run test:functional
 npm run build:win
 ```
+
+MSI 建議在 Windows 建置；repo 的 `Windows MSI` workflow 會編譯並測試安裝、啟動與解除安裝。完成後可從該次 workflow 的 `photo-mv-windows-msi` artifact 下載安裝檔。
 
 左上「專案」提供新專案、開啟專案、儲存專案及另存專案；快捷鍵 Ctrl+N／O／S（macOS 用 Cmd）。第一次儲存選擇 `.celebration` 檔案，之後儲存更新同一檔。「另存專案」（Ctrl/Cmd+Shift+S）建立副本並切換到新檔，保留原檔。切換有未儲存變更的專案時，可儲存、捨棄或取消。專案保存編輯設定及來源路徑，照片與音樂須留在原處。
 
