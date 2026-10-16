@@ -58,7 +58,11 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "runAfterFinish": false,
-      "artifactName": "照片MV-${version}-Windows-${arch}-Setup.${ext}"
-    }
+      "artifactName": "照片MV-${version}-Windows-${arch}-Setup.${ext}",
+      "additionalLightArgs": [
+        "-cultures:zh-TW"
+      ]
+    },
+    "msiProjectCreated": "scripts/configure-msi.cjs"
   }
 }
