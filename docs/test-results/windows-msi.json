@@ -1,0 +1,10 @@
+{
+  "installed": true,
+  "installerFormat": "MSI",
+  "editorWindowOpened": true,
+  "platform": "win32",
+  "testedAt": "2026-10-16T06:36:32.4304804Z",
+  "installedPayloadHashesMatch": true,
+  "uninstalled": true,
+  "allEditorFunctionsTested": false
+}

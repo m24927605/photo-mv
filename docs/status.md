@@ -1,6 +1,6 @@
 # 照片MV：交付與實測結果
 
-更新：2026-10-16，版本 0.1.0。依使用者指示先驗證 macOS；Windows 安裝／執行仍未實測。
+更新：2026-10-16，版本 0.1.0。依使用者指示先驗證 macOS；Windows CI 已通過 MSI 安裝、啟動與解除安裝，完整編輯功能及 Windows 10／11 實機仍待驗。
 
 ## 本輪完成
 
@@ -42,7 +42,7 @@
 
 ## 限制與未驗證
 
-- Windows 10／11 實機安裝、執行與系統字體仍待測。
+- Windows 10／11 使用者實機、完整互動編輯功能與系統字體仍待測；CI 安裝與啟動已另行通過。
 - 未做 300 張、4 小時、極大像素、磁碟滿、斷電及完整輔助閱讀器驗收。
 - 自動儲存約 250ms 內尚未落盤的瞬間操作仍可能在異常終止後遺失；來源照片與音樂須留在原路徑，專案不封裝媒體。
 - 剪裁產生的本機 PCM 未自動清除，長片磁碟用量仍待測。
@@ -67,7 +67,7 @@
 
 已加入文字框選取狀態的 Delete／Backspace，與工具列刪除共用流程。單擊選框、雙擊或 Enter 編輯；新增仍可直接輸入。text-keyboard、photo-selection、editor-layout、text-drag、text-color 已通過。另以 computer-use 實際單擊選框並按 Mac 刪除鍵，框被移除且照片保留；上一步恢復後雙擊、Cmd+A、刪除，僅清空字元，框保留：[完整原生步驟](test-results/native-text-keyboard-steps.json)、[自動測試](test-results/text-keyboard.json)。
 
-本輪文字延續修改後已重新執行完整 17 組影片矩陣；Windows 套件內容以套件紀錄為準，仍未在 Windows 執行。
+本輪文字延續修改後已重新執行完整 17 組影片矩陣；Windows 套件內容以套件紀錄為準；MSI 安裝／啟動結果另見下方 Windows MSI 驗證。
 
 ## 後段既有文字區塊覆蓋新增文字的修正
 
@@ -76,3 +76,5 @@
 ## Windows MSI 建置
 
 Windows 交付格式改為 MSI，GitHub Actions 在 Windows runner 執行 npm test、建置、套件核對及安裝／啟動／解除安裝。完整 Windows 編輯功能仍須另行驗收，不以安裝成功代替。
+
+Windows MSI 驗證已通過：[CI run 38861828780](https://github.com/m24927605/photo-mv/actions/runs/38861828780)。Windows Server 2025 x64 runner 的 30 項測試全數通過，MSI 已實際安裝、核對所有安裝檔案 SHA-256、開啟編輯視窗及解除安裝。安裝程式內含程式、編碼器及授權。這不是完整 Windows 互動功能驗收；證據見 `test-results/windows-package.json` 與 `test-results/windows-msi.json`。

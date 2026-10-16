@@ -23,3 +23,4 @@ docs/test-results/*
 !.env.example
 *.pem
 *.key
+!docs/test-results/windows-msi.json

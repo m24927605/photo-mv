@@ -45,9 +45,10 @@
     "nativeKeyboardSelectionVsEditing": "PASS"
   },
   "windowsExecutionTested": false,
-  "windowsPackageIncludesLatestChanges": false,
-  "pendingVerification": [
-    "Windows MSI 建置及安裝驗證"
-  ],
-  "windowsPackageVerifiedAt": "2026-10-16T05:51:17.859Z"
+  "windowsPackageIncludesLatestChanges": true,
+  "pendingVerification": [],
+  "windowsPackageVerifiedAt": "2026-10-16T06:36:22.361Z",
+  "windowsMsiInstallLaunchUninstallPassed": true,
+  "windowsUnitTestsPassed": 30,
+  "windowsMsiRun": "https://github.com/m24927605/photo-mv/actions/runs/38861828780"
 }
